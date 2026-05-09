@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SCOUT — Jogos</title>
+  <link rel="stylesheet" href="/css/jogos.css">
+</head>
+<body>
+
+<div class="aplicativo">
+
+  <!-- CABEÇALHO -->
+  <header class="cabecalho">
+    <div class="cabecalho-espaco"></div>
+    <h1 class="logo">JOGOS</h1>
+    <div class="cabecalho-espaco"></div>
+  </header>
+
+  <!-- FILTROS -->
+  <div class="filtros">
+
+    <div class="filtro-select" id="filtroAdversario">
+      <span>Adversário</span>
+    </div>
+
+    <div class="filtro-chips">
+      <button class="chip chip--ativo" data-filtro="todos">Todos</button>
+      <button class="chip" data-filtro="vitoria">Vitória</button>
+      <button class="chip" data-filtro="derrota">Derrota</button>
+    </div>
+
+    <div class="filtro-busca">
+      <img src="../src/assets/IMG/lupa.png" class="icone-busca">
+      <input type="text" placeholder="Buscar..." class="input-busca" id="inputBusca">
+    </div>
+
+  </div>
+
+  <!-- LISTA DE JOGOS -->
+  <div class="lista-jogos" id="listaJogos">
+
+    <div class="tabela-cabecalho">
+      <span>Data</span>
+      <span>Adversário</span>
+      <span>Placar</span>
+      <span>Resultado</span>
+      <span></span>
+    </div>
+
+    <div class="jogo-item" data-resultado="vitoria">
+      <span class="jogo-data jogo-data--coluna">10/10/2025</span>
+      <span class="jogo-adversario">
+        Vôlei Vinhedo
+        <span class="jogo-data jogo-data--inline">10/10/2025</span>
+      </span>
+      <span class="jogo-placar">3 <span class="x">×</span> 1</span>
+      <span class="jogo-resultado jogo-resultado--vitoria">
+        Vitória
+      </span>
+      <a href="detalhes.html?id=1" class="botao-detalhes"></a>
+    </div>
+
+    <div class="jogo-item" data-resultado="vitoria">
+      <span class="jogo-data jogo-data--coluna">05/10/2025</span>
+      <span class="jogo-adversario">
+        Centro Olímpico
+        <span class="jogo-data jogo-data--inline">05/10/2025</span>
+      </span>
+      <span class="jogo-placar">3 <span class="x">×</span> 2</span>
+      <span class="jogo-resultado jogo-resultado--vitoria">
+        Vitória
+      </span>
+      <a href="detalhes.html?id=2" class="botao-detalhes"></a>
+    </div>
+
+    <div class="jogo-item" data-resultado="vitoria">
+      <span class="jogo-data jogo-data--coluna">28/09/2025</span>
+      <span class="jogo-adversario">
+        Vôlei Regatas
+        <span class="jogo-data jogo-data--inline">28/09/2025</span>
+      </span>
+      <span class="jogo-placar">3 <span class="x">×</span> 0</span>
+      <span class="jogo-resultado jogo-resultado--vitoria">
+        Vitória
+      </span>
+      <a href="detalhes.html?id=3" class="botao-detalhes"></a>
+    </div>
+
+    <div class="jogo-item" data-resultado="derrota">
+      <span class="jogo-data jogo-data--coluna">17/09/2025</span>
+      <span class="jogo-adversario">
+        Vôlei Asa Alumínio
+        <span class="jogo-data jogo-data--inline">17/09/2025</span>
+      </span>
+      <span class="jogo-placar">1 <span class="x">×</span> 3</span>
+      <span class="jogo-resultado jogo-resultado--derrota">
+        Derrota
+      </span>
+      <a href="detalhes.html?id=4" class="botao-detalhes"></a>
+    </div>
+
+  </div>
+
+  <!-- BARRA INFERIOR -->
+  <nav class="barra-inferior">
+    <a href="/index.html" class="botao-inicio">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"
+           stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z"/>
+        <polyline points="9 21 9 12 15 12 15 21"/>
+      </svg>
+      Início
+    </a>
+  </nav>
+
+</div>
+
+<script src="/js/jogos.js"></script>
+</body>
+</html>

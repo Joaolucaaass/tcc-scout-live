@@ -1,0 +1,602 @@
+@font-face {
+  font-family: 'Nexa';
+  src: url('../src/assets/Nexa-ExtraLight.ttf') format('truetype');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Nexa';
+  src: url('../src/assets/Nexa-Heavy.ttf') format('truetype');
+  font-weight: 700;
+}
+
+html, body { 
+  height: 100%; 
+  overflow: hidden;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Nexa", Arial, sans-serif;
+  background: #050d1f;
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.cabecalho {
+  background: #080f20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  gap: 12px;
+  flex-shrink: 0;
+  position: relative;
+}
+
+
+.cabecalho-esquerda {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+
+.titulo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  line-height: 1;
+  gap: 6px;
+  pointer-events: none;
+}
+
+.titulo-scout {
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 4px;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.titulo-live {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: #4d9fff;
+  text-transform: uppercase;
+}
+
+.logo-img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.seletor-atleta {
+  position: relative;
+}
+
+.seletor-atleta-botao {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 20px;
+  padding: 7px 14px 7px 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+  min-width: 140px;
+}
+
+.seletor-atleta-botao:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+.seletor-atleta-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  flex: 1;
+}
+
+.seletor-atleta-label {
+  font-size: 9px;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.seletor-atleta-nome {
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.seletor-atleta-botao svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: rgba(255,255,255,0.4);
+  stroke-width: 2;
+  flex-shrink: 0;
+}
+
+.seletor-atleta-lista {
+  display: none;
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  background: #0e1e36;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 12px;
+  min-width: 180px;
+  z-index: 99;
+  overflow: hidden;
+}
+
+.seletor-atleta-lista.aberto {
+  display: block;
+}
+
+.seletor-atleta-lista li {
+  list-style: none;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.8);
+  transition: background 0.15s;
+}
+
+.seletor-atleta-lista li:hover {
+  background: rgba(45,127,255,0.15);
+  color: #fff;
+}
+
+/* botao para salvar */
+
+.botao-salvar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #1a5dc8, #2d7fff);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 28px;
+  font-family: "nexa", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: opacity 0.2s, transform 0.1s;
+  flex-shrink: 0;
+  height: 6vh;
+}
+
+.botao-salvar:hover  { opacity: 0.88; }
+.botao-salvar:active { transform: scale(0.96); }
+
+.botao-salvar svg {
+  width: 16px;
+  height: 16px;
+  margin-left: 7px;
+}
+
+.conteudo {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  min-height: 0;
+}
+
+.painel {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 0;
+}
+
+.painel-acertos {
+  background: rgba(26,93,200,0.12);
+  border-right: 1px solid rgba(255,255,255,0.06);
+}
+
+.painel-erros {
+  background: rgba(232,39,58,0.1);
+}
+
+.painel-titulo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  flex-shrink: 0;
+}
+
+.painel-titulo-icone {
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.painel-titulo-icone svg {
+  width: 14px;
+  height: 14px;
+}
+
+.painel-titulo-icone--acerto { background: rgba(45,127,255,0.2); }
+.painel-titulo-icone--erro   { background: rgba(232,39,58,0.2); }
+
+.painel-acertos .painel-titulo { color: #4d9fff; }
+.painel-erros .painel-titulo   { color: #ff6b7a; }
+
+.grade {
+  display: grid;
+  gap: 10px;
+  flex: 1;
+  min-height: 0;
+}
+
+.grade-acertos {
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.grade-erros {
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(4, 1fr);
+}
+
+.cartao {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+.cartao:hover {
+  border-color: rgba(255,255,255,0.15);
+}
+
+.cartao-topo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px 0;
+}
+
+.cartao-icone {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.cartao-nome {
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.85);
+  letter-spacing: 0.5px;
+}
+
+.etiqueta {
+  font-size: 9px;
+  font-weight: 700;
+  background: rgba(45,127,255,0.15);
+  border: 1px solid rgba(45,127,255,0.3);
+  border-radius: 5px;
+  padding: 1px 6px;
+  color: #4d9fff;
+  margin-left: auto;
+}
+
+.contador {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 10px 14px;
+  flex: 1;
+}
+
+.contador-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.06);
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, transform 0.1s;
+  line-height: 1;
+}
+
+.contador-btn:hover  { background: rgba(255,255,255,0.14); }
+.contador-btn:active { transform: scale(0.88); }
+
+.contador-btn.menos { color: rgba(255,255,255,0.6); }
+
+.contador-valor {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  min-width: 36px;
+  text-align: center;
+  color: #fff;
+}
+
+.rodape {
+  background: #080f20;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  display: flex;
+  align-items: center;
+  padding: 10px 24px;
+  flex-shrink: 0;
+}
+
+.botao-inicio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  background: rgba(45,127,255,0.15);
+  border: 1px solid rgba(45,127,255,0.3);
+  border-radius: 12px;
+  padding: 8px 16px;
+  color: #4d9fff;
+  cursor: pointer;
+  font-family: "nexa", Arial, sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.botao-inicio:hover {
+  background: rgba(45,127,255,0.25);
+}
+
+.botao-inicio svg {
+  width: 18px;
+  height: 18px;
+  stroke: #4d9fff;
+}
+
+.aviso {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: #1a5dc8;
+  color: #fff;
+  padding: 10px 24px;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 13px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: 999;
+  border: 1px solid rgba(45,127,255,0.4);
+}
+
+.aviso.visivel {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+
+/* mobile */
+
+@media (max-width: 600px) {
+
+  .cabecalho {
+    flex-wrap: wrap;
+    padding: 10px 14px;
+    gap: 6px;
+  }
+
+  .titulo {
+    order: 1;
+    position: static;
+    transform: none;
+    width: 100%;
+    justify-content: center;
+    pointer-events: auto;
+    padding-bottom: 4px;
+    margin-top: 2.5VH;
+  }
+
+  .cabecalho-esquerda {
+    order: 2;
+    gap: 8px;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .cabecalho-esquerda .seletor-atleta {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .cabecalho-esquerda .seletor-atleta-botao {
+    width: 100%;
+    min-width: unset;
+  }
+
+  .botao-salvar {
+    order: 3;
+    margin-left: auto;
+  }
+
+  .logo-img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .titulo-scout {
+    font-size: 1rem;
+    letter-spacing: 3px;
+  }
+
+  .botao-salvar {
+    padding: 9px 12px;
+    font-size: 0;
+    gap: 0;
+    border-radius: 10px;
+  }
+
+  .botao-salvar svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .seletor-atleta-botao {
+    min-width: unset;
+    border-radius: 12px;
+  }
+
+  .seletor-atleta-lista {
+    width: 100%;
+  }
+
+  .conteudo {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+  }
+
+  .painel-acertos {
+    border-right: none;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .painel {
+    padding: 12px;
+    gap: 10px;
+  }
+
+  .grade-acertos {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, auto);
+    gap: 8px;
+  }
+
+  .grade-erros {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(2, auto);
+    gap: 8px;
+  }
+
+  .cartao-topo {
+    padding: 8px 10px 0;
+    gap: 6px;
+  }
+
+  .cartao-icone {
+    width: 18px;
+    height: 18px;
+  }
+
+  .cartao-nome {
+    font-size: 10px;
+  }
+
+  .contador {
+    padding: 8px 10px;
+    gap: 10px;
+  }
+
+  .contador-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 20px;
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .contador-valor {
+    font-size: 1.7rem;
+    min-width: 30px;
+  }
+
+  .rodape {
+    padding: 8px 14px;
+    justify-content: flex-start;
+  }
+
+  .aviso {
+    width: calc(100% - 32px);
+    text-align: center;
+    bottom: 70px;
+  }
+}
+
+
+/* tablet */
+
+@media (min-width: 601px) and (max-width: 900px) {
+
+  .cabecalho {
+    padding: 12px 18px;
+  }
+
+  .seletor-atleta-botao {
+    min-width: 120px;
+  }
+
+  .conteudo {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .grade-acertos {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, auto);
+  }
+
+  .grade-erros {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, auto);
+  }
+
+  .contador-btn {
+    min-width: 44px;
+    min-height: 44px;
+  }
+}

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scout Live</title>
+  <link rel="stylesheet" href="../css/scoutlive.css" />
+</head>
+<body>
+
+<!-- ══════════════════ CABEÇALHO ══════════════════ -->
+<header class="cabecalho">
+
+  <!-- ESQUERDA: Atleta + Set lado a lado -->
+  <div class="cabecalho-esquerda">
+
+    <div class="seletor-atleta">
+      <div class="seletor-atleta-botao" id="seletorAtleta" onclick="toggleDropdown()">
+        <div class="seletor-atleta-info">
+          <span class="seletor-atleta-label">Atleta</span>
+          <span class="seletor-atleta-nome" id="atletaSelecionado">Atletas</span>
+        </div>
+        <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <ul class="seletor-atleta-lista" id="listaAtletas">
+        <li onclick="selectAthlete('Todas')">Todas</li>
+        <li onclick="selectAthlete('Atleta 1')">Atleta 1</li>
+        <li onclick="selectAthlete('Atleta 2')">Atleta 2</li>
+        <li onclick="selectAthlete('Atleta 3')">Atleta 3</li>
+      </ul>
+    </div>
+
+    <div class="seletor-atleta" id="seletorSetWrapper">
+      <div class="seletor-atleta-botao" onclick="toggleDropdownSet()">
+        <div class="seletor-atleta-info">
+          <span class="seletor-atleta-label">Set</span>
+          <span class="seletor-atleta-nome" id="setSelecionado">Set 1</span>
+        </div>
+        <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <ul class="seletor-atleta-lista" id="listaSet">
+        <li onclick="selecionarSet(1)">Set 1</li>
+        <li onclick="selecionarSet(2)">Set 2</li>
+        <li onclick="selecionarSet(3)">Set 3</li>
+        <li onclick="selecionarSet(4)">Set 4</li>
+        <li onclick="selecionarSet(5)">Set 5</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- CENTRO: Logo absolutamente centralizada -->
+  <div class="titulo">
+    <span class="titulo-scout">SCOUT</span>
+    <span class="titulo-live">LIVE</span>
+  </div>
+
+  <!-- DIREITA: Salvar -->
+  <button class="botao-salvar" onclick="saveScout()">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
+      <polyline points="17 21 17 13 7 13 7 21"/>
+      <polyline points="7 3 7 8 15 8"/>
+    </svg>
+    Salvar Scout
+  </button>
+
+</header>
+
+<!-- ══════════════════ CONTEUDO ══════════════════ -->
+<main class="conteudo">
+
+  <!-- ── PAINEL DE ACERTOS ── -->
+  <section class="painel painel-acertos">
+
+    <div class="painel-titulo">
+      <div class="painel-titulo-icone painel-titulo-icone--acerto">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#2d7fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"/>
+        </svg>
+      </div>
+      <span>Acertos</span>
+    </div>
+
+    <div class="grade grade-acertos">
+
+      <div class="cartao">
+        <div class="cartao-topo">
+          <span class="cartao-nome">Passe</span>
+          <div class="etiqueta">A</div>
+        </div>
+        <div class="contador">
+          <button class="contador-btn menos" onclick="change('acerto_passeA', -1)">−</button>
+          <span class="contador-valor" id="acerto_passeA">0</span>
+          <button class="contador-btn mais" onclick="change('acerto_passeA', 1)">+</button>
+        </div>
+      </div>
+
+      <div class="cartao">
+        <div class="cartao-topo">
+          <span class="cartao-nome">Passe</span>
+          <div class="etiqueta">B</div>
+        </div>
+        <div class="contador">
+          <button class="contador-btn menos" onclick="change('acerto_passeB', -1)">−</button>
+          <span class="contador-valor" id="acerto_passeB">0</span>
+          <button class="contador-btn mais" onclick="change('acerto_passeB', 1)">+</button>
+        </div>
+      </div>
+
+      <div class="cartao">
+        <div class="cartao-topo">
+          <span class="cartao-nome">Ataque</span>
+        </div>
+        <div class="contador">
+          <button class="contador-btn menos" onclick="change('acerto_ataque', -1)">−</button>
+          <span class="contador-valor" id="acerto_ataque">0</span>
+          <button class="contador-btn mais" onclick="change('acerto_ataque', 1)">+</button>
+        </div>
+      </div>
+
+      <div class="cartao">
+        <div class="cartao-topo">
+          <span class="cartao-nome">Saque</span>
+        </div>
+        <div class="contador">
+          <button class="contador-btn menos" onclick="change('acerto_saque', -1)">−</button>
+          <span class="contador-valor" id="acerto_saque">0</span>
+          <button class="contador-btn mais" onclick="change('acerto_saque', 1)">+</button>
+        </div>
+      </div>
+
+      <div class="cartao">
+        <div class="cartao-topo">
+          <span class="cartao-nome">Bloqueio</span>
+        </div>
+        <div class="contador">
+          <button class="contador-btn menos" onclick="change('acerto_bloqueio', -1)">−</button>
+          <span class="contador-valor" id="acerto_bloqueio">0</span>
+          <button class="contador-btn mais" onclick="change('acerto_bloqueio', 1)">+</button>
+        </div>
+      </div>
+
+      <div class="cartao">
+        <div class="cartao-topo">
+          <span class="cartao-nome">Levantamento</span>
+        </div>
+        <div class="contador">
+          <button class="contador-btn menos" onclick="change('acerto_levantamento', -1)">−</button>
+          <span class="contador-valor" id="acerto_levantamento">0</span>
+          <button class="contador-btn mais" onclick="change('acerto_levantamento', 1)">+</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── PAINEL DE ERROS ── -->
+  <section class="painel painel-erros">
+
+    <div class="painel-titulo">
+      <div class="painel-titulo-icone painel-titulo-icone--erro">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#e8273a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </div>
+      <span>Erros</span>
+    </div>
+
+    <div class="grade grade-erros">
+
+      <div class="cartao">
+        <div class="cartao-topo">
+          <span class="cartao-nome">Passe</span>
+        </div>
+        <div class="contador">
+          <button class="contador-btn menos" onclick="change('erro_passe', -1)">−</button>
+          <span class="contador-valor" id="erro_passe">0</span>
+          <button class="contador-btn mais" onclick="change('erro_passe', 1)">+</button>
+        </div>
+      </div>
+
+      <div class="cartao">
+        <div class="cartao-topo">
+          <span class="cartao-nome">Bloqueio</span>
+        </div>
+        <div class="contador">
+          <button class="contador-btn menos" onclick="change('erro_bloqueio', -1)">−</button>
+          <span class="contador-valor" id="erro_bloqueio">0</span>
+          <button class="contador-btn mais" onclick="change('erro_bloqueio', 1)">+</button>
+        </div>
+      </div>
+
+      <div class="cartao">
+        <div class="cartao-topo">
+          <span class="cartao-nome">Levantamento</span>
+        </div>
+        <div class="contador">
+          <button class="contador-btn menos" onclick="change('erro_levantamento', -1)">−</button>
+          <span class="contador-valor" id="erro_levantamento">0</span>
+          <button class="contador-btn mais" onclick="change('erro_levantamento', 1)">+</button>
+        </div>
+      </div>
+
+      <div class="cartao">
+        <div class="cartao-topo">
+          <span class="cartao-nome">Ataque</span>
+        </div>
+        <div class="contador">
+          <button class="contador-btn menos" onclick="change('erro_ataque', -1)">−</button>
+          <span class="contador-valor" id="erro_ataque">0</span>
+          <button class="contador-btn mais" onclick="change('erro_ataque', 1)">+</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- ══════════════════ RODAPE ══════════════════ -->
+<footer class="rodape">
+  <a href="../index.html" class="botao-inicio">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z"/>
+      <polyline points="9 21 9 12 15 12 15 22"/>
+    </svg>
+    Início
+  </a>
+</footer>
+
+<div class="aviso" id="aviso"> Scout salvo com sucesso!</div>
+
+<script src="../js/scoutlive.js"></script>
+</body>
+</html>

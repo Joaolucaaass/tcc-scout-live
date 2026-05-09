@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perfil</title>
+  <link rel="stylesheet" href="../css/perfil.css" />
+</head>
+<body>
+
+<!-- ══════════════════ CONTEÚDO ══════════════════ -->
+<main class="perfil-conteudo">
+
+  <h1 class="perfil-titulo">Perfil</h1>
+
+  <div class="perfil-layout">
+
+    <!-- Coluna esquerda: foto -->
+    <div class="perfil-col-foto">
+      <div class="perfil-foto-ring">
+
+        <div class="perfil-foto-placeholder">
+
+        </div>
+
+      
+        <button class="perfil-foto-edit" aria-label="Alterar foto">
+         <img src="../src/assets/IMG/editarfoto.png" clais="icone-editarfoto" >
+        </button>
+
+      </div>
+      <span class="perfil-nome">João Silva</span>
+      <span class="perfil-cargo">Técnico</span>
+      <div class="perfil-divider"></div>
+      <button class="btn-sair">
+        <img src="../src/assets/IMG/sair.png" clais="icone-sair" >
+        Sair da conta
+      </button>
+    </div>
+
+    <!-- Coluna direita: dados -->
+    <div class="perfil-col-dados">
+      <div class="perfil-secao">
+        <div class="perfil-secao-titulo">Informações da conta</div>
+
+        <div class="perfil-campo">
+          <span class="perfil-campo-label">E-mail</span>
+          <span class="perfil-campo-valor" id="valorEmail">joao.silva@email.com</span>
+        </div>
+
+        <div class="perfil-campo">
+          <span class="perfil-campo-label">CPF</span>
+          <span class="perfil-campo-valor" id="valorCpf">•••.•••.•••-••</span>
+        </div>
+
+        <div class="perfil-campo">
+          <span class="perfil-campo-label">Senha</span>
+          <span class="perfil-campo-valor">••••••••</span>
+        </div>
+      </div>
+
+      <button class="btn-editar">
+        <img src="../src/assets/IMG/editar.png" class="icone-editar  ">
+          Editar Informações
+      </button>
+    </div>
+
+  </div>
+
+</main>
+
+<!-- ══════════════════ RODAPÉ ══════════════════ -->
+<footer class="rodape">
+  <a href="../index.html" class="botao-inicio">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z"/>
+      <polyline points="9 21 9 12 15 12 15 22"/>
+    </svg>
+    Início
+  </a>
+</footer>
+
+
+</body>
+</html>
