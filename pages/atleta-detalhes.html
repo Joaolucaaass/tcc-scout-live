@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detalhes do Atleta</title>
+  <link rel="stylesheet" href="../css/atleta-detalhes.css" />
+</head>
+<body>
+
+
+<div class="atletas-titulo-wrapper">
+  <h1 class="atletas-titulo">Atletas</h1>
+</div>
+
+
+<main class="atletas-conteudo">
+
+ 
+  <div class="form-topo">
+    <div></div>
+    <button class="btn-excluir" id="btnExcluir">
+      <img src="../src/assets/IMG/lixeira.png" class="icone-lixo">
+      Excluir atleta
+    </button>
+  </div>
+
+ 
+  <div class="form-card">
+
+  
+    <div class="form-foto-col">
+      <div class="foto-preview">
+        <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+      </div>
+    </div>
+
+   
+    <div class="form-divisor"></div>
+
+    <div class="form-campos">
+
+      <div class="form-row">
+        <div class="campo-grupo">
+          <span class="campo-label">Nome</span>
+          <span class="campo-valor" id="campoNome">Mariana</span>
+        </div>
+        <div class="campo-grupo">
+          <span class="campo-label">Número</span>
+          <span class="campo-valor" id="campoNumero">10</span>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="campo-grupo">
+          <span class="campo-label">Posição</span>
+          <span class="campo-valor" id="campoPosicao">Líbero</span>
+        </div>
+        <div class="campo-grupo">
+          <span class="campo-label">RG</span>
+          <span class="campo-valor" id="campoRg">12.345.678-9</span>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="campo-grupo">
+          <span class="campo-label">Idade</span>
+          <span class="campo-valor" id="campoIdade">22</span>
+        </div>
+        <div class="campo-grupo">
+          <span class="campo-label">CPF</span>
+          <span class="campo-valor" id="campoCpf">123.456.789-00</span>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="campo-grupo">
+          <span class="campo-label">Altura</span>
+          <span class="campo-valor" id="campoAltura">1,75m</span>
+        </div>
+        <div class="campo-grupo">
+          <span class="campo-label">Peso</span>
+          <span class="campo-valor" id="campoPeso">65kg</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</main>
+
+
+<footer class="rodape">
+  <a href="atletas.html" class="botao-inicio">
+    <img src="../src/assets/IMG/voltar.png" class="icone-voltar">
+    </svg>
+    Voltar
+  </a>
+</footer>
+
+</body>
+</html>

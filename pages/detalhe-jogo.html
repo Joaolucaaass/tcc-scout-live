@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detalhes do Jogo</title>
+  <link rel="stylesheet" href="../css/detalhe-jogos.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+
+<div class="titulo-wrapper">
+  <h1 class="titulo-pagina">Jogos</h1>
+</div>
+
+
+<main class="conteudo">
+
+  
+  <div class="jogo-topo">
+    <div class="jogo-info">
+      <span class="jogo-adversario">Vôlei Vinhedo</span>
+      <div class="jogo-meta">
+        <span class="jogo-data">10/10/2025</span>
+        <span class="jogo-placar">3 <span class="x">×</span> 1</span>
+        <span class="jogo-resultado jogo-resultado--vitoria">Vitória</span>
+      </div>
+    </div>
+    <button class="btn-excluir" id="btnExcluir">
+      <img src="../src/assets/IMG/lixeira.png" class="icone-lixo">
+      Excluir jogo
+    </button>
+  </div>
+
+  
+  <div class="grade-principal">
+
+    <!-- Gráfico -->
+
+    <div class="card card-grafico">
+      <div class="card-titulo">
+        <span>Desempenho geral por Set</span>
+      </div>
+      <div class="grafico-wrapper">
+        <canvas id="graficoSets"></canvas>
+      </div>
+    </div>
+
+    <div class="card card-destaque">
+      <div class="card-titulo">
+        <span>Atleta Destaque</span>
+      </div>
+      <div class="destaque-conteudo" id="atletaDestaque">
+        <div class="destaque-foto">
+          <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+        </div>
+        <span class="destaque-nome">Mariana</span>
+        <span class="destaque-posicao">Líbero</span>
+        <div class="destaque-stats">
+          <div class="destaque-stat">
+            <span class="destaque-stat-valor">24</span>
+            <span class="destaque-stat-label">Acertos</span>
+          </div>
+          <div class="destaque-stat-divisor"></div>
+          <div class="destaque-stat">
+            <span class="destaque-stat-valor">3</span>
+            <span class="destaque-stat-label">Erros</span>
+          </div>
+          <div class="destaque-stat-divisor"></div>
+          <div class="destaque-stat">
+            <span class="destaque-stat-valor">89%</span>
+            <span class="destaque-stat-label">Aproveit.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</main>
+
+
+<footer class="rodape">
+  <a href="jogos.html" class="botao-voltar">
+     <img src="../src/assets/IMG/voltar.png" class="icone-voltar">
+    Voltar
+  </a>
+</footer>
+
+<script src="../js/grafico.js"></script>
+<script src="../js/detalhe-jogo.js"></script>
+</body>
+</html>
