@@ -140,6 +140,7 @@ body {
   flex: 1;
   min-height: 0;
   padding-bottom: 8px;
+   align-content: start
 }
 
 .atleta-card {

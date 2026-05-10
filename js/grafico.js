@@ -1,8 +1,4 @@
-// ══════════════════════════════════════════
-//  graficos.js — configuração do gráfico
-//  Os dados fixos abaixo serão substituídos
-//  pelos valores vindos do banco 
-// ══════════════════════════════════════════
+//  graficos.js — configuração do gráfico, os dados fixos abaixo serão substituídos
 
 const dadosGrafico = {
   labels: ['Set 1', 'Set 2', 'Set 3', 'Set 4'],

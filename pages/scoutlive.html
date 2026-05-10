@@ -11,7 +11,7 @@
 
 <header class="cabecalho">
 
-  <!-- ESQUERDA: Atleta + Set lado a lado -->
+  <!-- esquerda: atleta + set lado a lado -->
   <div class="cabecalho-esquerda">
 
     <div class="seletor-atleta">
@@ -49,19 +49,13 @@
 
   </div>
 
-
   <div class="titulo">
     <span class="titulo-scout">SCOUT</span>
     <span class="titulo-live">LIVE</span>
   </div>
 
-  
   <button class="botao-salvar" onclick="saveScout()">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-      <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
-      <polyline points="17 21 17 13 7 13 7 21"/>
-      <polyline points="7 3 7 8 15 8"/>
-    </svg>
+    <img src="../src/assets/IMG/salvar.png" class="icone-salvar">
     Salvar Scout
   </button>
 
@@ -70,7 +64,6 @@
 
 <main class="conteudo">
 
- 
   <section class="painel painel-acertos">
 
     <div class="painel-titulo">
@@ -222,12 +215,61 @@
 
 <footer class="rodape">
   <a href="../index.html" class="botao-inicio">
-    <img src="../src/assets/IMG/casa.png" class="icone-casa" >
+    <img src="../src/assets/IMG/casa.png" class="icone-casa">
     Início
   </a>
 </footer>
 
-<div class="aviso" id="aviso"> Scout salvo com sucesso!</div>
+<!-- aviso de sucesso -->
+<div class="aviso" id="aviso">Scout salvo com sucesso!</div>
+
+<!-- modal de confirmação do scout -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+
+    <h2 class="modal-titulo">Confirmar Scout</h2>
+    <div class="modal-divisor"></div>
+
+    <!-- data do jogo -->
+    <div class="modal-campo">
+      <label class="modal-label" for="modalData">Data do jogo</label>
+      <input class="modal-input" type="date" id="modalData" />
+    </div>
+
+    <!-- adversário -->
+    <div class="modal-campo">
+      <label class="modal-label" for="modalAdversario">Adversário</label>
+      <input class="modal-input" type="text" id="modalAdversario" placeholder="Ex: Vôlei Vinhedo" />
+    </div>
+
+    <!-- placar: meu time × adversário -->
+    <div class="modal-campo">
+      <label class="modal-label">Placar (meu time × adversário)</label>
+      <div class="modal-placar-linha">
+        <input class="modal-input" type="number" id="modalPlacarNos" min="0" max="3" placeholder="0" />
+        <span class="modal-placar-x">×</span>
+        <input class="modal-input" type="number" id="modalPlacarAdv" min="0" max="3" placeholder="0" />
+      </div>
+    </div>
+
+    <!-- resultado -->
+    <div class="modal-campo">
+      <label class="modal-label" for="modalResultado">Resultado</label>
+      <select class="modal-select" id="modalResultado">
+        <option value="" disabled selected>Selecione...</option>
+        <option value="vitoria">Vitória</option>
+        <option value="derrota">Derrota</option>
+      </select>
+    </div>
+
+    <!-- botões -->
+    <div class="modal-acoes">
+      <button class="btn-modal-cancelar" id="btnModalCancelar">Cancelar</button>
+      <button class="btn-modal-confirmar" id="btnModalConfirmar">Salvar</button>
+    </div>
+
+  </div>
+</div>
 
 <script src="../js/scoutlive.js"></script>
 </body>
