@@ -5,9 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Perfil</title>
   <link rel="stylesheet" href="../css/perfil.css" />
+  <link rel="stylesheet" href="https://unpkg.com/cropperjs@1.6.2/dist/cropper.min.css">
+  <script src="https://unpkg.com/cropperjs@1.6.2/dist/cropper.min.js"></script>
 </head>
 <body>
-
 
 <main class="perfil-conteudo">
 
@@ -15,30 +16,36 @@
 
   <div class="perfil-layout">
 
-    
     <div class="perfil-col-foto">
       <div class="perfil-foto-ring">
 
-        <div class="perfil-foto-placeholder">
-
+        <div class="perfil-foto-placeholder" id="fotoPlaceholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
         </div>
 
-      
-        <button class="perfil-foto-edit" aria-label="Alterar foto">
-         <img src="../src/assets/IMG/editarfoto.png" clais="icone-editarfoto" >
+        <img class="perfil-foto-img" id="fotoPerfilImg" src="" alt="" style="display:none;">
+
+        <button class="perfil-foto-edit" id="btnEditarFoto" aria-label="Alterar foto">
+          <img src="../src/assets/IMG/editarfoto.png" class="icone-editarfoto">
         </button>
 
+        <input type="file" id="inputFotoPerfil" accept="image/*" style="display:none;">
+
       </div>
-      <span class="perfil-nome">João Silva</span>
+
+      <span class="perfil-nome" id="perfilNome">João Silva</span>
       <span class="perfil-cargo">Técnico</span>
       <div class="perfil-divider"></div>
-      <button class="btn-sair">
-        <img src="../src/assets/IMG/sair.png" clais="icone-sair" >
+
+      <button class="btn-sair" id="btnSair">
+        <img src="../src/assets/IMG/sair.png" class="icone-sair">
         Sair da conta
       </button>
     </div>
 
-   
     <div class="perfil-col-dados">
       <div class="perfil-secao">
         <div class="perfil-secao-titulo">Informações da conta</div>
@@ -59,9 +66,9 @@
         </div>
       </div>
 
-      <button class="btn-editar">
-        <img src="../src/assets/IMG/editar.png" class="icone-editar  ">
-          Editar Informações
+      <button class="btn-editar" id="btnEditar">
+        <img src="../src/assets/IMG/editar.png" class="icone-editar">
+        Editar Informações
       </button>
     </div>
 
@@ -69,14 +76,77 @@
 
 </main>
 
-
 <footer class="rodape">
   <a href="../index.html" class="botao-inicio">
-     <img src="../src/assets/IMG/casa.png" class="icone-casa" >
+    <img src="../src/assets/IMG/casa.png" class="icone-casa">
     Início
   </a>
 </footer>
 
+<!-- modal de editar informações -->
+<div class="modal-overlay" id="modalEditarOverlay">
+  <div class="modal">
 
+    <h2 class="modal-titulo">Editar Informações</h2>
+    <div class="modal-divisor"></div>
+
+    <div class="modal-campo">
+      <label class="modal-label" for="editNome">Nome</label>
+      <input class="modal-input" type="text" id="editNome" placeholder="Seu nome completo">
+    </div>
+
+    <div class="modal-campo">
+      <label class="modal-label" for="editEmail">E-mail</label>
+      <input class="modal-input" type="email" id="editEmail" placeholder="seu@email.com">
+    </div>
+
+    <div class="modal-campo">
+      <label class="modal-label" for="editCpf">CPF</label>
+      <input class="modal-input" type="text" id="editCpf" placeholder="000.000.000-00">
+    </div>
+
+    <div class="modal-campo">
+      <label class="modal-label" for="editSenha">
+        Nova senha
+        <span class="modal-label-obs">(deixe em branco pra manter)</span>
+      </label>
+      <div class="modal-input-wrapper">
+        <input class="modal-input" type="password" id="editSenha" placeholder="••••••••">
+        <button class="btn-ver-senha" id="btnVerSenha" type="button">
+          <img src="../src/assets/IMG/olho.png" id="iconeOlho" class="icone-olho">
+        </button>
+      </div>
+    </div>
+
+    <div class="modal-acoes">
+      <button class="btn-modal-cancelar" id="btnEditarCancelar">Cancelar</button>
+      <button class="btn-modal-confirmar" id="btnEditarConfirmar">Salvar</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- modal de crop da foto -->
+<div class="modal-crop-overlay" id="modalCropOverlay">
+  <div class="modal-crop">
+
+    <h2 class="modal-crop-titulo">Posicionar foto</h2>
+    <div class="modal-crop-divisor"></div>
+
+    <div class="crop-area">
+      <img id="imagemCrop" src="" alt="foto">
+    </div>
+
+    <p class="crop-dica">Arraste para ajustar o enquadramento</p>
+
+    <div class="modal-crop-acoes">
+      <button class="btn-crop-cancelar" id="btnCropCancelar">Cancelar</button>
+      <button class="btn-crop-confirmar" id="btnCropConfirmar">Confirmar</button>
+    </div>
+
+  </div>
+</div>
+
+<script src="../js/perfil.js"></script>
 </body>
 </html>

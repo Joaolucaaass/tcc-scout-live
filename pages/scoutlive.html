@@ -17,10 +17,10 @@
     <div class="seletor-atleta">
       <div class="seletor-atleta-botao" id="seletorAtleta" onclick="toggleDropdown()">
         <div class="seletor-atleta-info">
-          <span class="seletor-atleta-label">Atleta</span>
-          <span class="seletor-atleta-nome" id="atletaSelecionado">Atletas</span>
+          <span class="seletor-atleta-label">Atletas</span>
+          <span class="seletor-atleta-nome" id="atletaSelecionado">Atleta</span>
         </div>
-        <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        
       </div>
       <ul class="seletor-atleta-lista" id="listaAtletas">
         <li onclick="selectAthlete('Todas')">Todas</li>
@@ -68,9 +68,7 @@
 
     <div class="painel-titulo">
       <div class="painel-titulo-icone painel-titulo-icone--acerto">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#2d7fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <polyline points="20 6 9 17 4 12"/>
-        </svg>
+        <img src="../src/assets/IMG/certo.png" class="icone-acerto">
       </div>
       <span>Acertos</span>
     </div>
@@ -153,10 +151,7 @@
 
     <div class="painel-titulo">
       <div class="painel-titulo-icone painel-titulo-icone--erro">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#e8273a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="18" y1="6" x2="6" y2="18"/>
-          <line x1="6" y1="6" x2="18" y2="18"/>
-        </svg>
+         <img src="../src/assets/IMG/erro.png" class="icone-erro">
       </div>
       <span>Erros</span>
     </div>

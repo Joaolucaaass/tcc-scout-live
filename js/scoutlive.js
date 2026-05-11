@@ -166,6 +166,7 @@ function destacarCamposVazios() {
     const el = document.getElementById(id);
     if (!el.value || el.value.trim() === '') {
       el.style.borderColor = 'rgba(232, 39, 58, 0.7)';
+      
       // volta pro normal depois de 2 segundos
       setTimeout(() => el.style.borderColor = '', 2000);
     }

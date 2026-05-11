@@ -1,6 +1,7 @@
 *, *::before, *::after { 
   box-sizing: border-box;
-  margin: 0; padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 @font-face {
@@ -9,6 +10,7 @@
   font-weight: 400;
   font-style: normal;
 }
+
 @font-face {
   font-family: "nexa";
   src: url("../src/assets/Nexa-Heavy.ttf");
@@ -29,7 +31,6 @@ body {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  background: radial-gradient(ellipse at 50% 0%, #0e2654 0%, #050d1f 60%);
   position: relative;
   overflow: hidden;
 }
@@ -38,9 +39,6 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background-image:
-    radial-gradient(circle at 20% 30%, rgba(45,127,255,0.08) 0%, transparent 50%),
-    radial-gradient(circle at 80% 70%, rgba(45,127,255,0.06) 0%, transparent 50%);
   pointer-events: none;
   z-index: 0;
 }
@@ -99,16 +97,21 @@ body {
   color: #fff;
   white-space: nowrap;
 }
+
 .filtro-select:hover { 
   background: rgba(255,255,255,0.1);
 }
+
 .filtro-select svg {
   width: 15px;
   height: 15px;
-  opacity: 0.7; 
+  opacity: 0.7;
   flex-shrink: 0;
 }
-.seta-select { opacity: 0.5 !important; }
+
+.seta-select {
+  opacity: 0.5 !important;
+}
 
 .filtro-chips {
   display: flex;
@@ -128,14 +131,16 @@ body {
   transition: all 0.2s;
   white-space: nowrap;
 }
+
 .chip--ativo {
   background: rgba(45,127,255,0.15);
   border-color: rgba(45,127,255,0.4);
   color: #fff;
 }
+
 .chip:hover {
   background: rgba(255,255,255,0.1);
-  color: #fff; 
+  color: #fff;
 }
 
 .filtro-busca {
@@ -150,9 +155,17 @@ body {
   min-width: 100px;
   transition: border-color 0.2s;
 }
-.filtro-busca:focus-within { border-color: rgba(45,127,255,0.4); }
-.filtro-busca svg { width: 15px; height: 15px; opacity: 0.5; flex-shrink: 0; }
 
+.filtro-busca:focus-within {
+  border-color: rgba(45,127,255,0.4);
+}
+
+.filtro-busca svg {
+  width: 15px;
+  height: 15px;
+  opacity: 0.5;
+  flex-shrink: 0;
+}
 
 .icone-busca {
   width: 15px;
@@ -170,7 +183,11 @@ body {
   font-size: 13px;
   width: 100%;
 }
-.input-busca::placeholder { color: rgba(255,255,255,0.3); }
+
+.input-busca::placeholder {
+  color: rgba(255,255,255,0.3);
+}
+
 
 
 .lista-jogos {
@@ -222,14 +239,21 @@ body {
 .jogo-item:nth-child(5) { animation-delay: 0.20s; }
 
 @keyframes surgir {
-  from { opacity: 0; transform: translateY(12px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .jogo-item:hover {
   background: rgba(45,127,255,0.07);
   border-color: rgba(45,127,255,0.2);
 }
+
 
 .jogo-data {
   font-size: 13px;
@@ -267,14 +291,17 @@ body {
   font-weight: 700;
   letter-spacing: 0.5px;
 }
-.jogo-resultado svg { 
-  width: 13px; 
+
+.jogo-resultado svg {
+  width: 13px;
   height: 13px;
-  flex-shrink: 0; 
+  flex-shrink: 0;
 }
 
 .jogo-resultado--vitoria { color: #3dd68c; }
 .jogo-resultado--derrota { color: #e8273a; }
+
+
 
 .botao-detalhes {
   display: flex;
@@ -290,17 +317,19 @@ body {
   transition: background 0.2s, border-color 0.2s;
   justify-self: end;
 }
+
 .botao-detalhes:hover {
   background: rgba(45,127,255,0.25);
   border-color: rgba(45,127,255,0.5);
 }
-.icone-detalhe{
-   width: 22px;
-   height: 22px; 
-   margin-left: 3.5px;
-  }
 
-/* scrollbar */
+.icone-detalhe {
+  width: 22px;
+  height: 22px;
+  margin-left: 3.5px;
+}
+
+
 
 .lista-jogos::-webkit-scrollbar { width: 4px; }
 .lista-jogos::-webkit-scrollbar-track { background: transparent; }
@@ -352,57 +381,190 @@ body {
   stroke: #4d9fff;
 }
 
+/*celular pequeno*/
 
-/* tablet */
+@media (max-width: 359px) {
+  .cabecalho {
+    padding: 10px 12px;
+  }
 
-@media (min-width: 768px) {
-  .cabecalho { padding: 20px 40px 16px; }
-  .logo { font-size: 28px; }
-  .filtros { padding: 0 40px 16px; gap: 10px; }
-  .lista-jogos { padding: 0 40px 100px; }
+  .logo {
+    font-size: 13px;
+    letter-spacing: 2px;
+  }
 
-  .tabela-cabecalho,
-  .jogo-item { grid-template-columns: 110px 1fr 90px 110px 50px; }
+  .cabecalho-espaco {
+    width: 28px;
+  }
 
-  .tabela-cabecalho span { font-size: 12px; }
-  .jogo-item { padding: 16px 20px; border-radius: 16px; }
-  .jogo-data { font-size: 13px; }
-  .jogo-adversario { font-size: 15px; }
-  .jogo-placar { font-size: 15px; }
+  .filtros {
+    padding: 0 10px 10px;
+    gap: 6px;
+  }
+
+  .chip {
+    padding: 5px 8px;
+    font-size: 11px;
+  }
+
+  .filtro-select {
+    font-size: 11px;
+    padding: 5px 8px;
+  }
+
+  .filtro-busca {
+    padding: 5px 10px;
+    min-width: 80px;
+  }
+
+  .input-busca {
+    font-size: 11px;
+  }
+
+  .tabela-cabecalho {
+    display: none;
+  }
+
+  .jogo-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+      "adversario botao"
+      "placar     botao";
+    column-gap: 10px;
+    row-gap: 6px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    margin-bottom: 6px;
+    align-items: start;
+  }
+
+  .jogo-data--coluna {
+    display: none;
+  }
+
+  .jogo-adversario {
+    grid-area: adversario;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .jogo-data--inline {
+    display: block;
+    font-size: 9px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.4);
+  }
+
+  .jogo-placar {
+    grid-area: placar;
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+  }
+
+  .jogo-resultado {
+    grid-area: resultado;
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    font-size: 11px;
+    margin-left: 8px;
+  }
+
+  .jogo-resultado svg {
+    width: 10px;
+    height: 10px;
+  }
+
+  .botao-detalhes {
+    grid-area: botao;
+    width: 26px;
+    height: 26px;
+    border-radius: 8px;
+    align-self: center;
+    justify-self: end;
+  }
+
+  .icone-detalhe {
+    width: 18px;
+    height: 18px;
+    margin-left: 2px;
+  }
+
+  .lista-jogos {
+    padding: 0 10px calc(env(safe-area-inset-bottom, 0px) + 72px);
+  }
+
+  .barra-inferior {
+    padding: 7px 12px calc(env(safe-area-inset-bottom, 0px) + 7px);
+  }
+
+  .botao-inicio {
+    font-size: 8px;
+    padding: 6px 12px;
+  }
+
+  .icone-casa {
+    width: 16px;
+    height: 16px;
+  }
 }
 
-/* desktop */
+/* Celular (360px) */
 
-@media (min-width: 1200px) {
-  .cabecalho { padding: 16px 80px; }
-  .logo { font-size: 32px; letter-spacing: 5px; }
-  .filtros { padding: 0 80px 20px; }
-  .lista-jogos { padding: 0 80px 100px; }
+@media (min-width: 360px) and (max-width: 767px) {
+  .cabecalho {
+    padding: 12px 16px;
+  }
+
+  .logo {
+    font-size: 16px;
+    letter-spacing: 3px;
+  }
+
+  .filtros {
+    padding: 0 12px 12px;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .chip {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+
+  .filtro-select {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
 
   .tabela-cabecalho,
-  .jogo-item { grid-template-columns: 120px 1fr 100px 120px 54px; }
+  .jogo-item {
+    grid-template-columns: 1fr 58px 80px 34px;
+  }
 
-  .tabela-cabecalho { padding: 12px 20px; border-radius: 14px; }
-  .jogo-item { padding: 18px 20px; border-radius: 18px; }
-  .botao-detalhes { width: 36px; height: 36px; border-radius: 12px; }
-}
+  .tabela-cabecalho {
+    padding: 8px 12px;
+  }
 
-/* celular */
+  .tabela-cabecalho span {
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
 
-@media (max-width: 767px) {
-  .cabecalho { padding: 12px 16px; }
-  .logo { font-size: 16px; letter-spacing: 3px; }
-  .filtros { padding: 0 12px 12px; gap: 10px; flex-wrap: wrap; }
+  .tabela-cabecalho span:first-child {
+    display: none;
+  }
 
-  .chip { padding: 6px 10px; font-size: 12px; }
-  .filtro-select { font-size: 12px; padding: 6px 10px; }
+  .jogo-data--coluna {
+    display: none;
+  }
 
-  .tabela-cabecalho,
-  .jogo-item { grid-template-columns: 1fr 58px 80px 34px; }
-
-  .tabela-cabecalho span:first-child { display: none; }
-
-  .jogo-data--coluna { display: none; }
   .jogo-data--inline {
     display: block;
     font-size: 10px;
@@ -417,16 +579,127 @@ body {
     font-size: 13px;
   }
 
-  .tabela-cabecalho { padding: 8px 12px; }
-  .tabela-cabecalho span { font-size: 10px; letter-spacing: 1px; }
+  .jogo-item {
+    padding: 12px;
+    border-radius: 12px;
+    margin-bottom: 6px;
+    align-items: center;
+  }
 
-  .jogo-item { padding: 12px; border-radius: 12px; margin-bottom: 6px; align-items: center; }
-  .jogo-placar { font-size: 13px; }
-  .jogo-resultado { font-size: 12px; gap: 3px; }
-  .jogo-resultado svg { width: 11px; height: 11px; }
+  .jogo-placar {
+    font-size: 13px;
+  }
 
-  .botao-detalhes { width: 28px; height: 28px; border-radius: 8px; }
+  .jogo-resultado {
+    font-size: 12px;
+    gap: 3px;
+  }
 
-  .lista-jogos { padding: 0 12px calc(env(safe-area-inset-bottom, 0px) + 76px); }
-  .barra-inferior { padding: 8px 16px calc(env(safe-area-inset-bottom, 0px) + 8px); }
+  .jogo-resultado svg {
+    width: 11px;
+    height: 11px;
+  }
+
+  .botao-detalhes {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+  }
+
+  .lista-jogos {
+    padding: 0 12px calc(env(safe-area-inset-bottom, 0px) + 76px);
+  }
+
+  .barra-inferior {
+    padding: 8px 16px calc(env(safe-area-inset-bottom, 0px) + 8px);
+  }
+}
+
+/* Tablet */
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .cabecalho {
+    padding: 20px 40px 16px;
+  }
+
+  .logo {
+    font-size: 28px;
+  }
+
+  .filtros {
+    padding: 0 40px 16px;
+    gap: 10px;
+  }
+
+  .lista-jogos {
+    padding: 0 40px 100px;
+  }
+
+  .tabela-cabecalho,
+  .jogo-item {
+    grid-template-columns: 110px 1fr 90px 110px 50px;
+  }
+
+  .tabela-cabecalho span {
+    font-size: 12px;
+  }
+
+  .jogo-item {
+    padding: 16px 20px;
+    border-radius: 16px;
+  }
+
+  .jogo-data {
+    font-size: 13px;
+  }
+
+  .jogo-adversario {
+    font-size: 15px;
+  }
+
+  .jogo-placar {
+    font-size: 15px;
+  }
+}
+
+/* Desktop (1200px+)  */
+
+@media (min-width: 1200px) {
+  .cabecalho {
+    padding: 16px 80px;
+  }
+
+  .logo {
+    font-size: 32px;
+    letter-spacing: 5px;
+  }
+
+  .filtros {
+    padding: 0 80px 20px;
+  }
+
+  .lista-jogos {
+    padding: 0 80px 100px;
+  }
+
+  .tabela-cabecalho,
+  .jogo-item {
+    grid-template-columns: 120px 1fr 100px 120px 54px;
+  }
+
+  .tabela-cabecalho {
+    padding: 12px 20px;
+    border-radius: 14px;
+  }
+
+  .jogo-item {
+    padding: 18px 20px;
+    border-radius: 18px;
+  }
+
+  .botao-detalhes {
+    width: 36px;
+    height: 36px;
+    border-radius: 12px;
+  }
 }
